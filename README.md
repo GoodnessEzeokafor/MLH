@@ -8,8 +8,11 @@ Farmo eliminates the middle-men i.e Finiancial insitutions(Banks) by creating an
 * Download Metamask
 * Download Ganache
 * Run Ganache ./ganache-2.1.2-linux-x86_64.AppImage
+
 * Create Workspace
 * clone the project
+* run truffle compile
+* run truffle migrate --reset
 * npm install
 * npm run start
 
