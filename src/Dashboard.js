@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./dashboard_css.css"
+import BoughtProductModal from "./BoughtProductModal"
 
 export default class Dashboard extends Component {
   constructor(props){
@@ -12,6 +13,7 @@ export default class Dashboard extends Component {
 		}	
   }
     render() {
+      let addModalClose =() => this.setState({addModalShow:false})
         return (
             <div>
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -36,6 +38,7 @@ export default class Dashboard extends Component {
               <th>#</th>
               <th>Product Image</th>
               <th>Product Title</th>
+              <th>Farmer Wallet Address</th>
               <th>Price</th>
               <th>Buy</th>
               <th>Edit</th>
@@ -55,9 +58,9 @@ export default class Dashboard extends Component {
                   />
               </td>
               <td>{product.product_name}</td>
+            <td>{product.seller}</td>
               <td>{window.web3.utils.fromWei(product.product_price.toString(),'Ether')} ETH</td>
                 <td>
-  
                   <button 
                     type="button" 
                     id={product.id}
@@ -69,6 +72,8 @@ export default class Dashboard extends Component {
                         .once('receipt', (receipt)=> {
                           this.setState({ loading: false})
                         })
+                      this.setState({addModalShow:true})
+                      event.persist();
                     }}
                     >Buy Product</button>
                 </td>
@@ -83,6 +88,10 @@ export default class Dashboard extends Component {
           </tbody>
         </table>
       </div>
+      <BoughtProductModal 
+				show={this.state.addModalShow}
+				onHide={addModalClose}
+            /> 
             </div> 
         );
     }
