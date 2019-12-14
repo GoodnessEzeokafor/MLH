@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/224b33a5-9343-4fb1-ba1f-1b18929ee697/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/farmchain",
+    "appService.deploySubpath": ""
+}
